@@ -1,0 +1,34 @@
+.body {
+  text-align: center;
+  font-size: 16px;
+  background-color: white;
+
+  button{
+    margin: 1rem;
+  }
+}
+
+.inputField{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  input{
+    
+  }
+}
+
+.inputGenre{
+    right: 0;
+    padding-right: 2rem;
+}
+
+.todoList{
+  display: flex;
+  justify-content: center;
+  padding-right: 3rem;
+}
+
+.todoText{
+  padding-right: 3rem;
+}
