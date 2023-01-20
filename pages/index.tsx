@@ -9,36 +9,44 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home(){
   type todo = {
     taskNames: string
-    completedFlags: boolean
+    isCompleted: boolean
     details: string
   }
 
+  const name: number= 1
+  //taskname
   const [text, setText] = useState("")
-  /* ↓state変数「addText」を定義 */
   const [addText, setAddText] = useState("")
 
+  //detail
   const [detail, setDetail] = useState("")
   const [addDetail, setAddDetail] = useState("")
 
-  const [todoList, setTodoList] = useState<todo[]>()
+  //todo todoTask;
+  //const [todoTask, setTodoList] = useState<todo>()
+
+  //todo[] todoList;
+  const [todoList, addTodoList] = useState<todo[]>([])
 
   // const addTodoList = () =>{
-  //   setTodoList([...todoList, ])
+  //   setTodoList([...todoList,todoTask])
   // }
 
-  /* ↓関数onClickAddTextを定義 */
   const onClickAddTask = () => {
-    setTodoList([{taskNames:text, completedFlags:false, details:detail}])
-    setAddText(text)
+    if(text === '') return 
+    
     setText("")
-    setAddDetail(detail)
     setDetail("")
+
+    const todoTask:todo = {taskNames:text, isCompleted:false, details:detail}
+    
+    if(todoTask!=undefined&&todoList!=undefined){
+      addTodoList([...todoList,todoTask])
+    }
   }
 
-  //const todoList = todo[]
-
   return (
-    <div　className={styles.body}>
+    <div className={styles.body}>
       <div className={styles.inputField}>
         <div className={styles.inputGenre}>
           <p>タスク名</p>
@@ -60,22 +68,24 @@ export default function Home(){
       <button onClick={onClickAddTask}>追加</button>
 
       {/* <p>入力中：{text}</p> */}
+      {/* <p>追加：{todoList![0].taskNames}</p> */}
 
-      {/* ↓pタグを追加 */}
-      {/* <p>追加：{addDetail}</p> */}
-
+      {/* 配列の要素を列挙 */}
       {todoList?.map((todo,index)=>(
-        <div  className={styles.todoList} key={index}>
-          <div className={styles.todoText}>
-            {'タスク名：'}{todo.taskNames}
-          </div>
-          <div className={styles.todoText}>
-            {'状態：'}{todo.completedFlags?"完了":"未完了"}
-          </div>
-          <div className={styles.todoText}>
-            {'詳細：'}{todo.details}
-          </div>
-        </div>))}
+      <div  className={styles.todoList} key={index}>
+        <div className={styles.todoText}>
+          {'タスク名：'}{todo.taskNames}
+        </div>
+        <div className={styles.todoText}>
+          {'状態：'}{todo.isCompleted?"完了":"未完了"}
+        </div>
+        <div className={styles.todoText}>
+          {'詳細：'}{todo.details}
+        </div>
+      </div>))}
+      
+      {console.log(todoList)}
+
     </div>
   )
 }
