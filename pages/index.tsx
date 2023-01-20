@@ -45,6 +45,20 @@ export default function Home(){
     }
   }
 
+  const [composing, setComposition] = useState(false);
+  const startComposition = () => setComposition(true);
+  const endComposition = () => setComposition(false);
+
+  const onKeydown = (key: string) => {
+    switch (key) {
+      case "Enter":
+        if(composing) break;
+        onClickAddTask()
+        break;
+    }
+  };
+  
+
   return (
     <div className={styles.body}>
       <div className={styles.inputField}>
@@ -56,11 +70,14 @@ export default function Home(){
           <input type={"text"}
             value={text}
             onChange={(event) => setText(event.target.value)}
+            placeholder="タスクを入力"
           /> 
           <br/>
           <input type={"text"}
             value={detail}
             onChange={(event) => setDetail(event.target.value)}
+            placeholder="タスク詳細を入力"
+            onKeyDown={(e) => onKeydown(e.key)}
           />
         </div>
       </div>
