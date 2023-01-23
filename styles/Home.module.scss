@@ -1,10 +1,10 @@
 .body {
   text-align: center;
   font-size: 16px;
-  background-color: white;
+  background-color: lightblue;
 
-  button{
-    margin: 1rem;
+  h1{
+    font-family:cursive
   }
 }
 
@@ -12,23 +12,28 @@
   display: flex;
   justify-content: center;
   list-style: none;
+  padding: 2rem;
+
+  p{
+    right: 0;
+    padding-right: 2rem;
+  }
 
   input{
     
   }
-}
 
-.inputGenre{
-    right: 0;
-    padding-right: 2rem;
+  button{
+    margin: 1em;
+  }
 }
 
 .todoList{
   display: flex;
   justify-content: center;
-  padding-right: 3rem;
-}
 
-.todoText{
-  padding-right: 3rem;
+  .todoText{
+    font-family:sans-serif;
+    margin: 1rem 2rem 0 0;
+  }
 }
