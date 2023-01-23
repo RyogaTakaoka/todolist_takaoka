@@ -6,6 +6,18 @@
   h1{
     font-family:cursive
   }
+
+  button{
+    margin: 1em;
+  }
+}
+
+.title{
+  font-size: 48px;
+  font-family:cursive;
+  font-weight: bold;
+  border-bottom: solid medium;
+  display: inline-block;
 }
 
 .inputField{
@@ -16,15 +28,11 @@
 
   p{
     right: 0;
-    padding-right: 2rem;
+    padding-right: 2em;
   }
 
   input{
     
-  }
-
-  button{
-    margin: 1em;
   }
 }
 
@@ -34,6 +42,6 @@
 
   .todoText{
     font-family:sans-serif;
-    margin: 1rem 2rem 0 0;
+    margin: 1em 2em 0 0;
   }
 }
